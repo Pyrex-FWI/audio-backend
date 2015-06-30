@@ -10,5 +10,5 @@
 
 angular.module('audioBackendApp')
     .controller('DdpCtrl', function ($scope, Restangular) {
-        $scope.tracks = Restangular.all("tracks").getList().$object;
+        $scope.tracks = Restangular.all('tracks').getList().$object;
     });

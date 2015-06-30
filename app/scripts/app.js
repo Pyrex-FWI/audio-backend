@@ -42,16 +42,17 @@ angular
             });
     })
     .config(function (RestangularProvider) {
-        RestangularProvider.setBaseUrl('http://ana/audio/web/app_dev.php/api/');
+        //RestangularProvider.setBaseUrl('http://ana/audio/web/app_dev.php/api/');
+        RestangularProvider.setBaseUrl('http://127.0.0.1:8000/api/');
 
-        RestangularProvider.setRequestInterceptor(function (elem, operation, what) {
+        RestangularProvider.setRequestInterceptor(function (elem, operation) {
 
             if (operation === 'put') {
                 elem.id = undefined;
                 return elem;
             }
             return elem;
-        })
+        });
         // Hydra collections support
         RestangularProvider.addResponseInterceptor(function (data, operation) {
             // Remove trailing slash to make Restangular working
